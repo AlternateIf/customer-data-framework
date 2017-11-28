@@ -223,3 +223,12 @@ services:
         class: Pimcore\Model\Tool\CustomReport\Adapter\DefaultCustomReportAdapterFactory
         arguments:
           - 'CustomerManagementFrameworkBundle\Adapter\TermSegmentBuilder'
+
+
+    CustomerManagementFrameworkBundle\GDPR\DataProvider\Customers:
+        public: true
+        arguments:
+            $config: '%pimcore.gdpr-data-extrator.customers%'
+            #$activityStore: '@CustomerManagementFrameworkBundle\ActivityStore\ActivityStoreInterface'
+        tags:
+            - {name: pimcore.gdpr.data-provider, id: customers}
